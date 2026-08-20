@@ -31,12 +31,13 @@ Las semanas no organizan el código ni los labs — solo el DevLog usa semanas, 
 
 ## Contenido migrado
 
-Este repositorio se creó a partir de dos repositorios anteriores, cuyo contenido fue reorganizado aquí según el estándar oficial. Ambos repos originales quedan archivados con un aviso de migración:
+Este repositorio se creó a partir de repositorios anteriores, cuyo contenido fue reorganizado aquí según el estándar oficial. Todos los repos originales quedan archivados con un aviso de migración:
 
 | Contenido | Repo original | Ubicación actual |
 |---|---|---|
 | Laboratorio 1 · API Gateway | [`dsy1107-lab-api-gateway-grupo-01`](https://github.com/jhonnylarry/dsy1107-lab-api-gateway-grupo-01) | [`labs/api-gateway/`](labs/api-gateway/) |
 | Investigación OAuth2/OIDC | [`Laboratorios-y-trabajos`](https://github.com/jhonnylarry/Laboratorios-y-trabajos) | [`practica/oauth-oidc/`](practica/oauth-oidc/) |
+| Diagnóstico · Mini Help Desk | [`Diagnostico`](https://github.com/jhonnylarry/Diagnostico) | [`practica/diagnostico/`](practica/diagnostico/) — en desarrollo |
 
 ## Índice
 

@@ -1,0 +1,22 @@
+# Backend (Java / Spring Boot / Maven)
+backend/target/
+backend/.mvn/
+backend/*.iml
+backend/.idea/
+
+# Frontend (React / Vite)
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+
+# Entorno
+.env
+*.env.local
+
+# Sistema
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
