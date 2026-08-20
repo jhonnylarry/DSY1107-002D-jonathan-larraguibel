@@ -1,0 +1,68 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: dsy1107-api-gateway-lab
+  cloud:
+    gateway:
+      server:
+        webflux:
+          # ETAPA D: se aplica a la respuesta de TODAS las rutas, sin
+          # importar cuál haga match. Es una política transversal del
+          # gateway, no algo que cada route deba repetir.
+          default-filters:
+            - AddResponseHeader=X-Gateway-Lab, DSY1107
+            # JSONPlaceholder responde sus propios headers CORS (permisivos,
+            # reflejan cualquier Origin). El globalcors de abajo agrega los
+            # suyos encima, sin reemplazar los del backend, y el navegador
+            # termina viendo el header duplicado y rechaza la respuesta:
+            #   "Access-Control-Allow-Origin header contains multiple values"
+            # DedupeResponseHeader colapsa los valores repetidos a uno solo.
+            - DedupeResponseHeader=Access-Control-Allow-Origin Access-Control-Allow-Credentials, RETAIN_UNIQUE
+
+          routes:
+            # ETAPA INICIAL
+            # Esta ruta ya funciona para que el grupo pueda comprobar
+            # el concepto de route + integration antes de continuar.
+            - id: posts-v1
+              uri: https://jsonplaceholder.typicode.com
+              predicates:
+                - Path=/api/v1/posts/**
+              filters:
+                # El cliente invoca /api/v1/posts/1, pero el backend público
+                # recibe /posts/1.
+                - RewritePath=/api/v1/(?<segment>.*), /$\{segment}
+                - AddResponseHeader=X-API-Version, v1
+
+            # ETAPA C: misma integración que v1, mismo backend, pero expuesta
+            # bajo un prefijo de ruta distinto. Permite que v1 y v2 convivan
+            # sin que los consumidores de v1 se vean afectados.
+            - id: posts-v2
+              uri: https://jsonplaceholder.typicode.com
+              predicates:
+                - Path=/api/v2/posts/**
+              filters:
+                - RewritePath=/api/v2/(?<segment>.*), /$\{segment}
+                - AddResponseHeader=X-API-Version, v2
+
+          # ETAPA E: política CORS del gateway. Sin esto, el navegador
+          # bloquea cualquier petición cross-origin que requiera preflight
+          # (POST/PUT/DELETE con Content-Type: application/json), porque
+          # el gateway no respondía nada útil a un OPTIONS.
+          globalcors:
+            add-to-simple-url-handler-mapping: true
+            cors-configurations:
+              '[/**]':
+                allowedOrigins:
+                  - http://localhost:5500
+                  - http://127.0.0.1:5500
+                allowedMethods:
+                  - GET
+                  - POST
+                  - PUT
+                  - DELETE
+                  - OPTIONS
+                allowedHeaders:
+                  - Content-Type
+                maxAge: 3600

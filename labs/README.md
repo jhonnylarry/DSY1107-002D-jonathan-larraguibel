@@ -1,0 +1,15 @@
+# labs/
+
+Laboratorios de mayor alcance. Cada uno vive en su propia carpeta con todo lo necesario para reproducirlo.
+
+## Laboratorios
+
+- [`api-gateway/`](api-gateway/) — Laboratorio 1 · API Gateway local con Spring Cloud Gateway (routing, versionado v1/v2, header transversal, CORS). Completo.
+
+## Pendiente
+
+- Laboratorio de identidad local (Semana 02): `mock-identity` + `gateway` + `reservapp-api` + `client`, flujo Authorization Code + PKCE.
+
+## Del laboratorio conceptual al laboratorio cloud
+
+Se completará cuando exista el par de laboratorios (local/neutral → cloud real) para cada tema, según pide el estándar del curso.
