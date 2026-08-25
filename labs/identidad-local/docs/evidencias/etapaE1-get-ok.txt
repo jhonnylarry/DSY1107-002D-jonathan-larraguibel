@@ -1,0 +1,9 @@
+HTTP/1.1 200 
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+date: Tue, 25 Aug 2026 16:41:51 GMT
+Content-Type: application/json
+Content-Length: 166
+
+[{"ownerId":"user-1000","service":"Cancha 1","id":"R-101","status":"CONFIRMED"},{"ownerId":"user-1000","service":"Sala de reuniones","id":"R-303","status":"PENDING"}]

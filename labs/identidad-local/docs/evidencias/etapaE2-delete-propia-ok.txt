@@ -1,0 +1,9 @@
+HTTP/1.1 200 
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+date: Tue, 25 Aug 2026 16:38:49 GMT
+Content-Type: application/json
+Content-Length: 61
+
+{"authorizedAs":"customer","result":"CANCELLED","id":"R-101"}

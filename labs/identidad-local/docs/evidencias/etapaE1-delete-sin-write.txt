@@ -1,0 +1,9 @@
+HTTP/1.1 403 
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+date: Tue, 25 Aug 2026 16:41:51 GMT
+Content-Type: application/json
+Transfer-Encoding: chunked
+
+{"timestamp":"2026-08-25T16:41:51.451Z","status":403,"error":"Forbidden","path":"/reservations/R-101"}

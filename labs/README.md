@@ -5,10 +5,7 @@ Laboratorios de mayor alcance. Cada uno vive en su propia carpeta con todo lo ne
 ## Laboratorios
 
 - [`api-gateway/`](api-gateway/) — Laboratorio 1 · API Gateway local con Spring Cloud Gateway (routing, versionado v1/v2, header transversal, CORS). Completo.
-
-## Pendiente
-
-- Laboratorio de identidad local (Semana 02): `mock-identity` + `gateway` + `reservapp-api` + `client`, flujo Authorization Code + PKCE.
+- [`identidad-local/`](identidad-local/) — Laboratorio · ReservApp identidad, autorización e IDaaS (Semana 02): `mock-identity` + `gateway` + `reservapp-api` + `client`, flujo Authorization Code + PKCE, 401/403, tenant y app registration design. Completo.
 
 ## Del laboratorio conceptual al laboratorio cloud
 
