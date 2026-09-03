@@ -1,0 +1,46 @@
+:root {
+  font-family: system-ui, sans-serif;
+  background: #f5f7fb;
+  color: #202124;
+}
+
+body {
+  margin: 0;
+}
+
+.container {
+  width: min(900px, 92%);
+  margin: 40px auto;
+  display: grid;
+  gap: 20px;
+}
+
+.card {
+  background: white;
+  border: 1px solid #dfe3e8;
+  border-radius: 12px;
+  padding: 24px;
+}
+
+form {
+  display: grid;
+  gap: 12px;
+}
+
+input,
+button {
+  font: inherit;
+  padding: 10px 12px;
+}
+
+button {
+  cursor: pointer;
+}
+
+.private-zone {
+  border-width: 2px;
+}
+
+.message {
+  min-height: 24px;
+}
