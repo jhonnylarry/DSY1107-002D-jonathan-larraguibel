@@ -20,3 +20,4 @@ Formato mínimo (ver manual completo: [`DEVLOG-ESTUDIANTE.md`](https://github.co
 - [Semana 02](semana-02.md)
 - [Semana 03](semana-03.md)
 - [Semana 04](semana-04.md)
+- [Semana 05](semana-05.md)
