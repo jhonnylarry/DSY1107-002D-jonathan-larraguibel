@@ -1,10 +1,11 @@
 # Actividad evaluada · Comunicación síncrona y asíncrona con RabbitMQ
 
-**Asignatura:** DSY1107 · Desarrollo Cloud Native I · Sección 002D
-**Estudiante:** Jonathan Larraguibel
-**Actividad:** Semana 08 · 10% de la Evaluación Parcial 2
-**Caso:** EcoPunto · reporte de materiales que un punto limpio dejó de recibir
-**Modalidad:** individual · informe sin presentación
+**Asignatura:** DSY1107 · Desarrollo Cloud Native I · Sección 002D  
+**Estudiante:** Jonathan Larraguibel  
+**Actividad:** Semana 08 · 10% de la Evaluación Parcial 2  
+**Caso:** EcoPunto · reporte de materiales que un punto limpio dejó de recibir  
+**Modalidad:** individual · informe sin presentación  
+**Versión PDF:** [`informe-actividad-rabbitmq.pdf`](informe-actividad-rabbitmq.pdf)
 
 ---
 
@@ -492,9 +493,41 @@ reportes registrados: 3                  ← no se guardó un reporte sin valida
 
 ### 23. Capturas del Management UI
 
-> Ver carpeta [`docs/capturas/`](docs/capturas/).
+Capturas completas de <http://localhost:15672>, tomadas el 2026-10-06 entre las 17:01 y las 17:02, con los cuatro servicios corriendo y después de enviar reportes de prueba.
 
-<!-- CAPTURAS -->
+#### 23.1 Overview
+
+![Overview del Management UI](docs/capturas/01-overview.webp)
+
+- **Global counts:** 3 conexiones (ms-reportes, ms-notificaciones, ms-estadisticas; ms-puntos-limpios no usa RabbitMQ), 3 canales, 2 colas y **2 consumers**.
+- **Message rates:** el pico de las 17:01:58 corresponde a un reporte enviado justo antes de la captura. La línea amarilla (*Publish*) llega a ~0,2/s y la morada (*Consumer ack*) a ~0,4/s: **un publish generó dos entregas confirmadas**, una por cola.
+- **Queued messages** en 0: todo lo publicado fue consumido y confirmado.
+
+#### 23.2 Exchanges
+
+![Exchanges](docs/capturas/02-exchanges.webp)
+
+- `ecopunto.events`, de tipo **topic** y durable (`D`), es el exchange de la solución. El resto son los exchanges predeclarados por RabbitMQ.
+- Los bindings de este exchange (`reporte.creado` y `reporte.*`) se muestran en la sección 17 con `rabbitmqctl list_bindings`.
+
+#### 23.3 Queues and Streams
+
+![Colas de los consumers](docs/capturas/03-queues.webp)
+
+- `estadisticas.reporte-creado` y `notificaciones.reporte-creado`: tipo `classic`, **durables** (`D`), en estado `running`.
+- Ready, Unacked y Total en 0: no hay mensajes pendientes; cada consumer procesó su copia.
+
+#### 23.4 Channels
+
+![Canales de producer y consumers](docs/capturas/04-channels.webp)
+
+| Canal | Prefetch | Columnas con tasa | Rol |
+|---|---|---|---|
+| `192.168.65.1:25580 (1)` | 250 | *deliver / get*, *ack* | Consumer |
+| `192.168.65.1:61467 (1)` | 250 | *deliver / get*, *ack* | Consumer |
+| `192.168.65.1:46917 (1)` | — | *publish*, *confirm*, *unroutable* | **Producer** (ms-reportes) |
+
+Cada servicio abre **su propia conexión** (puerto de origen distinto) con un canal. Los dos canales con prefetch 250 son los `@RabbitListener` de ms-notificaciones y ms-estadisticas; el canal con *publish* es el `RabbitTemplate` de ms-reportes.
 
 ---
 
