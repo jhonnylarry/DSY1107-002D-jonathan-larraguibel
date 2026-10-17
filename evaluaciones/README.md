@@ -20,4 +20,10 @@ En repo aparte, entregado como enlace de GitHub (así lo pide la rúbrica oficia
 
 [`ev2-actividad-rabbitmq/`](ev2-actividad-rabbitmq/) — Diseño e implementación de comunicación síncrona y asíncrona sobre el caso EcoPunto: 4 microservicios Spring Boot, exchange topic `ecopunto.events`, evento `ReporteCreado` con dos consumers (notificaciones y estadísticas). Informe en el README.
 
-> EP3 sin iniciar todavía.
+## Actividad · Diseño de integración asíncrona (10% EV2)
+
+[`ev2-diseno-integracion-asincrona/`](ev2-diseno-integracion-asincrona/) — Diseño (sin código) de la generación de tickets de mantención en EcoPunto: exchange direct `ecopunto.tareas`, cola `tickets.mantencion` con DLQ, ACK manual e idempotencia. Documento en el README y en [PDF](ev2-diseno-integracion-asincrona/diseno-integracion-asincrona.pdf).
+
+## EP3 / EP4 · EcoPunto con RabbitMQ
+
+Se implementa en el repo de EcoPunto (proyecto incremental).
