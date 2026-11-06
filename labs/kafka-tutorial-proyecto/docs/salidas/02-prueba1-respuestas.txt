@@ -1,0 +1,6 @@
+$ curl 'http://localhost:8888/api/kafka/send?message=Mensaje1'
+Mensaje enviado al topic 'tutorial-particiones' (sin key - distribución automática) | MENSAJE: Mensaje1
+$ curl 'http://localhost:8888/api/kafka/send?message=Mensaje2'
+Mensaje enviado al topic 'tutorial-particiones' (sin key - distribución automática) | MENSAJE: Mensaje2
+$ curl 'http://localhost:8888/api/kafka/send?message=Mensaje3'
+Mensaje enviado al topic 'tutorial-particiones' (sin key - distribución automática) | MENSAJE: Mensaje3

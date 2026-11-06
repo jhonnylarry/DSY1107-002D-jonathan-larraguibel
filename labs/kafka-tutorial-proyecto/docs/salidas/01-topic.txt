@@ -1,0 +1,8 @@
+$ kafka-topics --create --bootstrap-server localhost:9092 --topic tutorial-particiones --partitions 3 --replication-factor 1
+Created topic tutorial-particiones.
+
+$ kafka-topics --describe --bootstrap-server localhost:9092 --topic tutorial-particiones
+Topic: tutorial-particiones	TopicId: dsogQKmlT3Kl1LHBA69nGw	PartitionCount: 3	ReplicationFactor: 1	Configs: 
+	Topic: tutorial-particiones	Partition: 0	Leader: 1	Replicas: 1	Isr: 1
+	Topic: tutorial-particiones	Partition: 1	Leader: 1	Replicas: 1	Isr: 1
+	Topic: tutorial-particiones	Partition: 2	Leader: 1	Replicas: 1	Isr: 1

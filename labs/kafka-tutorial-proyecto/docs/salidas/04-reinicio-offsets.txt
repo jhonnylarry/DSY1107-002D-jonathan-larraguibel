@@ -1,0 +1,31 @@
+# 1. App detenida. Offsets confirmados del grupo:
+
+Consumer group 'mi-grupo-educativo' has no active members.
+
+GROUP              TOPIC                PARTITION  CURRENT-OFFSET  LOG-END-OFFSET  LAG             CONSUMER-ID     HOST            CLIENT-ID
+mi-grupo-educativo tutorial-particiones 0          0               0               0               -               -               -
+mi-grupo-educativo tutorial-particiones 1          3               3               0               -               -               -
+mi-grupo-educativo tutorial-particiones 2          3               3               0               -               -               -
+
+# 2. Se publica un mensaje con la app abajo (key orden-777):
+
+Consumer group 'mi-grupo-educativo' has no active members.
+
+GROUP              TOPIC                PARTITION  CURRENT-OFFSET  LOG-END-OFFSET  LAG             CONSUMER-ID     HOST            CLIENT-ID
+mi-grupo-educativo tutorial-particiones 0          0               0               0               -               -               -
+mi-grupo-educativo tutorial-particiones 1          3               3               0               -               -               -
+mi-grupo-educativo tutorial-particiones 2          3               4               1               -               -               -
+
+# 3. App reiniciada. Mensajes recibidos tras el reinicio:
+ MENSAJE RECIBIDO
+ 📍 Partición: 2
+ Offset: 3
+ Key: orden-777
+ Mensaje: Mensaje-con-app-abajo
+
+# 4. Offsets del grupo tras el reinicio:
+
+GROUP              TOPIC                PARTITION  CURRENT-OFFSET  LOG-END-OFFSET  LAG             CONSUMER-ID                                                        HOST            CLIENT-ID
+mi-grupo-educativo tutorial-particiones 0          0               0               0               consumer-mi-grupo-educativo-1-09d296a6-b071-47e9-a1b3-42ff7ceac302 /192.168.65.1   consumer-mi-grupo-educativo-1
+mi-grupo-educativo tutorial-particiones 1          3               3               0               consumer-mi-grupo-educativo-1-09d296a6-b071-47e9-a1b3-42ff7ceac302 /192.168.65.1   consumer-mi-grupo-educativo-1
+mi-grupo-educativo tutorial-particiones 2          4               4               0               consumer-mi-grupo-educativo-1-09d296a6-b071-47e9-a1b3-42ff7ceac302 /192.168.65.1   consumer-mi-grupo-educativo-1

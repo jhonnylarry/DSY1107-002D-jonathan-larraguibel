@@ -1,0 +1,6 @@
+$ curl 'http://localhost:8888/api/kafka/send?message=Paso1-Creada&key=orden-555'
+Mensaje enviado al topic 'tutorial-particiones' con KEY: orden-555 | MENSAJE: Paso1-Creada
+$ curl 'http://localhost:8888/api/kafka/send?message=Paso2-Pagada&key=orden-555'
+Mensaje enviado al topic 'tutorial-particiones' con KEY: orden-555 | MENSAJE: Paso2-Pagada
+$ curl 'http://localhost:8888/api/kafka/send?message=Paso3-Enviada&key=orden-555'
+Mensaje enviado al topic 'tutorial-particiones' con KEY: orden-555 | MENSAJE: Paso3-Enviada

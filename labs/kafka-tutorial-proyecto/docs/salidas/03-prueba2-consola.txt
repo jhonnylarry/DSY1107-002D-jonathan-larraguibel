@@ -1,0 +1,18 @@
+ MENSAJE RECIBIDO
+ 📍 Partición: 2
+ Offset: 0
+ Key: orden-555
+ Mensaje: Paso1-Creada
+====================================================================================================
+ MENSAJE RECIBIDO
+ 📍 Partición: 2
+ Offset: 1
+ Key: orden-555
+ Mensaje: Paso2-Pagada
+====================================================================================================
+ MENSAJE RECIBIDO
+ 📍 Partición: 2
+ Offset: 2
+ Key: orden-555
+ Mensaje: Paso3-Enviada
+====================================================================================================

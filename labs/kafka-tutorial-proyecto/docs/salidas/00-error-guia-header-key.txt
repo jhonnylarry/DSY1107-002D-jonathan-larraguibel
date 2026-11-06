@@ -1,0 +1,4 @@
+exhausted for tutorial-particiones-2@0
+exhausted for tutorial-particiones-2@1
+exhausted for tutorial-particiones-2@2
+Caused by: org.springframework.messaging.MessageHandlingException: Missing header 'kafka_receivedMessageKey' for method parameter type [class java.lang.String]
