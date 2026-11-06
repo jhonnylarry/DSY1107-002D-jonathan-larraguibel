@@ -1,0 +1,6 @@
+$ curl -X POST http://localhost:8081/api/banco/transaccion -d '{"usuario": "juan", "monto": 500, "origen": "app"}'
+📤 Enviado: 500.0 de juan
+$ curl -X POST http://localhost:8081/api/banco/transaccion -d '{"usuario": "juan", "monto": 15000, "origen": "cajero"}'
+📤 Enviado: 15000.0 de juan
+$ curl -X POST http://localhost:8081/api/banco/transaccion -d '{"usuario": "juan", "monto": 5, "origen": "app"}'
+📤 Enviado: 5.0 de juan

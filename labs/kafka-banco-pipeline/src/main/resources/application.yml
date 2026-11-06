@@ -1,0 +1,17 @@
+spring:
+  kafka:
+    bootstrap-servers: localhost:9092
+    # Corrección a la guía: sin esto el productor usa StringSerializer y no puede enviar una Transaccion
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+    streams:
+      application-id: banco-pipeline-app # ID único del Consumer Group de Streams
+      properties:
+        default.key.serde: org.apache.kafka.common.serialization.Serdes$StringSerde
+        default.value.serde: org.springframework.kafka.support.serializer.JsonSerde
+        spring.json.trusted.packages: "*"
+
+# Corrección a la guía: Kafka UI ya ocupa el 8080
+server:
+  port: 8081

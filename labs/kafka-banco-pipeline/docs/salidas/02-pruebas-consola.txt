@@ -1,0 +1,3 @@
+✅ Transacción procesada: 500.0
+✅ Transacción procesada: 15000.0
+🚨 ALERTA GENERADA: Transacción inusualmente alta en cajero

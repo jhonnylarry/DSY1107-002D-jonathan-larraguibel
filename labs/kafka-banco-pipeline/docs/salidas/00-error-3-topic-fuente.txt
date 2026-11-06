@@ -1,0 +1,2 @@
+org.apache.kafka.streams.errors.MissingSourceTopicException: One or more source topics were missing during rebalance
+stream-client [banco-pipeline-app-6d6968e1-2c22-492f-92e8-e1cadc8afa57] State transition from PENDING_ERROR to ERROR

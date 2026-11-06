@@ -1,0 +1,11 @@
+# Topics
+banco-alertas
+banco-transacciones
+
+# banco-transacciones
+Partition:1	Offset:0	juan	{"usuario":"juan","monto":500.0,"origen":"app","timestamp":1793979572529}
+Partition:1	Offset:1	juan	{"usuario":"juan","monto":15000.0,"origen":"cajero","timestamp":1793979575614}
+Partition:1	Offset:2	juan	{"usuario":"juan","monto":5.0,"origen":"app","timestamp":1793979578653}
+
+# banco-alertas
+Partition:0	Offset:0	juan	{"usuario":"juan","monto":15000.0,"motivo":"Transacción inusualmente alta en cajero","severidad":"ALTA"}

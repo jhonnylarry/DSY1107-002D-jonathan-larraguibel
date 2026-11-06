@@ -1,0 +1,1 @@
+SerializationException: Can't convert value of class com.banco.model.Transaccion to class org.apache.kafka.common.serialization.StringSerializer specified in value.serializer] with root cause

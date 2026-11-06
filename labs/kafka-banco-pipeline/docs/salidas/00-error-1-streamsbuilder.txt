@@ -1,0 +1,11 @@
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Parameter 0 of method kStreamPipeline in com.banco.config.PipelineTopology required a bean of type 'org.apache.kafka.streams.StreamsBuilder' that could not be found.
+
+
+Action:
+
+Consider defining a bean of type 'org.apache.kafka.streams.StreamsBuilder' in your configuration.
